@@ -1,10 +1,19 @@
 // Code your solution in this file
-function findMatching(arr, name) {
-  return arr.filter(person => {
-    return person.toLowerCase() === name.toLowerCase()
-  })
+function findMatching (list, name) {
+  return list.filter(function (driverName) {
+    return driverName.toLowerCase() === name.toLowerCase();
+  });
 }
 
-function fuzzyMatch(arr, letters) {
-  return arr.filter(el => el.toLowerCase().indexOf(letters.toLowerCase()) > -1)
+function fuzzyMatch (list, partialName) {
+  let lengthOfName = partialName.length;
+  return list.filter(function (driverName) {
+    return driverName.slice(0, lengthOfName) === partialName;
+  });
+}
+
+function matchName (list, name) {
+  return list.filter(function (driver) {
+    return driver.name.toLowerCase() === name.toLowerCase();
+  });
 }
